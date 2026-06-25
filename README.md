@@ -1,4 +1,4 @@
-# TIPD KKN Management (Odoo 19)
+# TIPD KKN Management
 
 Modul ini adalah *backend engine* (Inti) dari Sistem Informasi Kuliah Kerja Nyata (KKN). Modul ini bertanggung jawab atas seluruh manajemen master data, relasi, dan logika bisnis administrasi KKN.
 
