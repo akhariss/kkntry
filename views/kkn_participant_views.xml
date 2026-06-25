@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_kkn_participant_tree" model="ir.ui.view">
+        <field name="name">tipd_kkn.participant.tree</field>
+        <field name="model">tipd_kkn.participant</field>
+        <field name="arch" type="xml">
+            <list string="Peserta KKN">
+                <field name="nim"/>
+                <field name="partner_id"/>
+                <field name="group_id"/>
+                <field name="program_id"/>
+                <field name="faculty"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_kkn_participant_form" model="ir.ui.view">
+        <field name="name">tipd_kkn.participant.form</field>
+        <field name="model">tipd_kkn.participant</field>
+        <field name="arch" type="xml">
+            <form string="Peserta KKN">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="registered,active,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="partner_id" placeholder="Pilih Data Mahasiswa"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="nim"/>
+                            <field name="faculty"/>
+                            <field name="major"/>
+                        </group>
+                        <group>
+                            <field name="group_id"/>
+                            <field name="program_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Daftar Nilai" name="grades">
+                            <field name="grade_ids">
+                                <list>
+                                    <field name="supervisor_id"/>
+                                    <field name="score"/>
+                                    <field name="grade_letter"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tipd_kkn_participant" model="ir.actions.act_window">
+        <field name="name">Peserta KKN</field>
+        <field name="res_model">tipd_kkn.participant</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

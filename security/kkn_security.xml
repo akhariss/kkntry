@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Categories -->
+        <record id="module_category_tipd_kkn" model="ir.module.category">
+            <field name="name">KKN Management</field>
+            <field name="description">Helps you manage KKN Programs.</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Groups -->
+        <record id="group_kkn_user" model="res.groups">
+            <field name="name">Mahasiswa / Peserta</field>
+        </record>
+
+        <record id="group_kkn_supervisor" model="res.groups">
+            <field name="name">Dosen Pembimbing Lapangan (DPL)</field>
+            <field name="implied_ids" eval="[(4, ref('group_kkn_user'))]"/>
+        </record>
+
+        <record id="group_kkn_admin" model="res.groups">
+            <field name="name">Administrator KKN</field>
+            <field name="implied_ids" eval="[(4, ref('group_kkn_supervisor'))]"/>
+        </record>
+
+        <!-- Assign Administrator to the group via inheritance -->
+        <record id="base.group_system" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('tipd_kkn.group_kkn_admin'))]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top Menu -->
+    <menuitem id="menu_kkn_root" name="KKN" sequence="50" web_icon="tipd_kkn,static/description/icon.png"/>
+
+    <!-- Sub Menus -->
+    <menuitem id="menu_kkn_activity" name="Laporan (LKH)" parent="menu_kkn_root" sequence="20" action="action_tipd_kkn_activity"/>
+    <menuitem id="menu_kkn_master" name="Data Master" parent="menu_kkn_root" sequence="30"/>
+    
+    <!-- Data Master Actions (Actions will be defined in respective views) -->
+    <menuitem id="menu_kkn_program" name="Program KKN" parent="menu_kkn_master" sequence="10" action="action_tipd_kkn_program"/>
+    <menuitem id="menu_kkn_group" name="Kelompok" parent="menu_kkn_master" sequence="20" action="action_tipd_kkn_group"/>
+    <menuitem id="menu_kkn_location" name="Lokasi Posko" parent="menu_kkn_master" sequence="30" action="action_tipd_kkn_location"/>
+    
+    <!-- User Management -->
+    <menuitem id="menu_kkn_users" name="Peserta &amp; DPL" parent="menu_kkn_root" sequence="40"/>
+    <menuitem id="menu_kkn_participant" name="Mahasiswa Peserta" parent="menu_kkn_users" sequence="10" action="action_tipd_kkn_participant"/>
+    <menuitem id="menu_kkn_supervisor" name="Dosen Pembimbing" parent="menu_kkn_users" sequence="20" action="action_tipd_kkn_supervisor"/>
+    <menuitem id="menu_kkn_grade" name="Penilaian" parent="menu_kkn_users" sequence="30" action="action_tipd_kkn_grade"/>
+</odoo>

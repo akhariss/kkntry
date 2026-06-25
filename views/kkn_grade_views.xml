@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_kkn_grade_tree" model="ir.ui.view">
+        <field name="name">tipd_kkn.grade.tree</field>
+        <field name="model">tipd_kkn.grade</field>
+        <field name="arch" type="xml">
+            <list string="Penilaian Mahasiswa">
+                <field name="participant_id"/>
+                <field name="supervisor_id"/>
+                <field name="score"/>
+                <field name="grade_letter"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_kkn_grade_form" model="ir.ui.view">
+        <field name="name">tipd_kkn.grade.form</field>
+        <field name="model">tipd_kkn.grade</field>
+        <field name="arch" type="xml">
+            <form string="Penilaian Mahasiswa">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="participant_id"/>
+                            <field name="supervisor_id"/>
+                        </group>
+                        <group>
+                            <field name="score"/>
+                            <field name="grade_letter" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Catatan DPL">
+                            <field name="notes" placeholder="Catatan dan evaluasi dari DPL..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tipd_kkn_grade" model="ir.actions.act_window">
+        <field name="name">Penilaian Mahasiswa</field>
+        <field name="res_model">tipd_kkn.grade</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
