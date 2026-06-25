@@ -28,20 +28,20 @@ class KknActivity(models.Model):
     def action_approve(self):
         for record in self:
             record.state = 'approved'
-            # Cari atau buat blog khusus KKN
-            blog = self.env['blog.blog'].search([('name', 'ilike', 'Berita KKN')], limit=1)
+            # Cari atau buat blog khusus KKN (gunakan sudo agar DPL tidak terkena limitasi hak akses)
+            blog = self.env['blog.blog'].sudo().search([('name', 'ilike', 'Berita KKN')], limit=1)
             if not blog:
-                blog = self.env['blog.blog'].create({
+                blog = self.env['blog.blog'].sudo().create({
                     'name': 'Berita KKN',
                     'subtitle': 'Publikasi Kegiatan Mahasiswa KKN'
                 })
             
-            # Buat postingan blog
+            # Buat postingan blog (dengan sudo)
             author_id = self.env.user.partner_id.id
             if record.participant_id and record.participant_id.partner_id:
                 author_id = record.participant_id.partner_id.id
                 
-            self.env['blog.post'].create({
+            self.env['blog.post'].sudo().create({
                 'name': record.name,
                 'subtitle': f'Dilaporkan oleh {record.participant_id.name} ({record.group_id.name}) pada {record.date}',
                 'content': record.description,
