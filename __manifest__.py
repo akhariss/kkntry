@@ -34,7 +34,7 @@
     """,
     'author': 'SufyALDI - Forum TIPD',
     'website': '',
-    'depends': ['base', 'mail', 'account'],
+    'depends': ['base', 'mail', 'account', 'website_blog'],
     'data': [
         'security/kkn_security.xml',
         'security/ir.model.access.csv',

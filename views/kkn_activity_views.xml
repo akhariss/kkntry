@@ -26,7 +26,9 @@
         <field name="arch" type="xml">
             <form string="Laporan Kegiatan">
                 <header>
-                    <button name="%(tipd_kkn.action_tipd_kkn_activity)d" string="Submit Laporan" type="action" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_submit" string="Submit Laporan" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_approve" string="Setujui (Terbitkan Berita)" type="object" class="oe_highlight" invisible="state != 'submitted'"/>
+                    <button name="action_reject" string="Tolak" type="object" invisible="state != 'submitted'"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved"/>
                 </header>
                 <sheet>
