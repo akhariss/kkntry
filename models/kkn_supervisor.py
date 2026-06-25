@@ -30,5 +30,5 @@ class KknSupervisor(models.Model):
                     'login': record.nip,
                     'password': record.nip,
                     'partner_id': record.partner_id.id,
-                    'groups_id': [(6, 0, [group_internal.id, group_dpl.id])],
+                    'group_ids': [(6, 0, [group_internal.id, group_dpl.id])],
                 })
